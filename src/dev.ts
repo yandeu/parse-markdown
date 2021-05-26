@@ -6,4 +6,7 @@ const main = async () => {
   const md = await parseMarkdown(data) // Promise<{ markdown: string; yaml: {}; }>
   console.log(md)
 }
-main()
+
+setTimeout(() => {
+  main()
+}, 250)

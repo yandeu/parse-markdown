@@ -8,7 +8,7 @@
     "start": "npm run dev",
     "dev": "npm run clean && npm run build && npm-run-all --parallel dev:*",
     "dev:tsc": "tsc --watch",
-    "dev:nodemon": "nodemon lib",
+    "dev:nodemon": "nodemon lib/dev.js",
     "build": "npm run clean && tsc",
     "format:check": "prettier --check src/**/*",
     "format": "prettier --write src/**/*",
@@ -29,6 +29,7 @@
   },
   "homepage": "https://github.com/yandeu/parse-markdown#readme",
   "dependencies": {
+    "rehype-raw": "^5.1.0",
     "rehype-stringify": "^8.0.0",
     "remark-frontmatter": "^3.0.0",
     "remark-gfm": "^1.0.0",
