@@ -1,5 +1,9 @@
 # Parse Markdown
 
+```bash
+npm i @yandeu/parse-markdown
+```
+
 ## Three simple steps
 
 1\) Input
