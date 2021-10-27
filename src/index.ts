@@ -7,7 +7,6 @@
 // read: https://www.npmjs.com/package/remark-parse
 import YAML from 'yaml'
 import frontmatter from 'remark-frontmatter' // Support frontmatter.
-import fs from 'fs/promises'
 import markdown from 'remark-parse' // Parse markdown.
 import raw from 'rehype-raw'
 import remark2rehype from 'remark-rehype' // Turn it into HTML.
@@ -57,16 +56,6 @@ const extractYAMLFromMarkdown = data => {
 
 export const parseYAML = yaml => {
   return YAML.parse(yaml)
-}
-
-export const parseMarkdownFromFile = async (path: string): Promise<{ markdown: string; yaml: {} }> => {
-  try {
-    const data = await fs.readFile(path, { encoding: 'utf-8' })
-    console.log(data)
-    return await parseMarkdown(data)
-  } catch (error) {
-    return error
-  }
 }
 
 export const parseMarkdown = async (data: string): Promise<{ markdown: string; yaml: {} }> => {
