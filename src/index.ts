@@ -12,9 +12,9 @@ import raw from 'rehype-raw'
 import remark2rehype from 'remark-rehype' // Turn it into HTML.
 import remarkGfm from 'remark-gfm' // Support GFM (tables, autolinks, tasklists, strikethrough).
 import serialize from 'rehype-stringify' // Serialize HTML.
-import unified from 'unified'
+import { unified } from 'unified'
 
-function stringify(options) {
+function stringify(options = {}): any {
   // @ts-ignore
   const self = this
 
@@ -42,11 +42,7 @@ const markdownProcessor = unified()
   .use(raw)
   .use(serialize)
 
-const yamlProcessor = unified()
-  .use(markdown)
-  .use(frontmatter, ['yaml'])
-  // @ts-ignore
-  .use(stringify)
+const yamlProcessor = unified().use(markdown).use(frontmatter, ['yaml']).use(stringify)
 
 const extractYAMLFromMarkdown = data => {
   const yaml = data.result.children.filter(block => block.type === 'yaml')[0]

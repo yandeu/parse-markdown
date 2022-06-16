@@ -1,5 +1,5 @@
 import fs from 'fs/promises'
-import { parseMarkdown } from './'
+import { parseMarkdown } from './index.js'
 
 const main = async () => {
   const data = await fs.readFile('test/test.md', { encoding: 'utf-8' })
