@@ -4,6 +4,7 @@
   "description": "Easily parse your markdown files.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
+  "type": "module",
   "scripts": {
     "start": "npm run dev",
     "dev": "npm run clean && npm run build && npm-run-all --parallel dev:*",
@@ -15,7 +16,7 @@
     "lint": "eslint src --ext .ts,.tsx",
     "lint:fix": "eslint --fix src --ext .ts,.tsx",
     "clean": "rimraf lib",
-    "test": "jest --collectCoverage",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "prepublishOnly": "npm run clean && npm run format && npm run lint && npm run build"
   },
   "repository": {
